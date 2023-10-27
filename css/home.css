@@ -30,27 +30,15 @@
 
 :root {
     --near-black: #222;
+    --off-black: #444;
     --near-white: #DDD;
+    --off-white: #BBB;
     --ntt-blue: #07C;
     --indy-red: #D22;
     --dark-blue: #047;
 
     --quick-in: cubic-bezier(0, 0.75, 0.25, 1);
 }
-
-@media (prefers-color-scheme: dark) {
-    html {
-        background-color: var(--near-black);
-        color: var(--near-white);
-    }
-} /* End of Dark Mode CSS */
-
-@media (prefers-color-scheme: light) {
-    html {
-        background-color: var(--near-white);
-        color: var(--near-black);
-    }
-} /* End of Light Mode CSS */
 
 html {
     font-family: "Atkinson Hyperlegible", Industry, sans-serif;
@@ -60,6 +48,9 @@ html {
 
     max-width: 100%;
     overflow-x: hidden;
+
+    background-color: var(--near-white);
+    color: var(--near-black);
 }
 
 /* Import after so users who need font get it, but later can be used for all users. */
@@ -219,19 +210,160 @@ nav {
     font-size: 3em;
     font-weight: 1000;
     text-transform: uppercase;
+    color: var(--near-white);
 
     background: linear-gradient(90deg, var(--dark-blue) 0%, var(--ntt-blue) 100%);
 }
 
 #articleSection {
     position: absolute;
-    top: 110vh;
+    top: 115vh;
+    left: 5vw;
+
+    width: 90vw;
+    height: 87vh;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
 
-#3sideArticles > .article {
-    width: 30vw;
-    height: 25vh;
+#mainArticle {
+    width: calc(55vw - 2vh);
+    margin: 2vh;
+    margin-left: 0;
 
     background-color: white;
+    border: var(--off-white) 0.25vw solid;
+}
+
+#mainArticle > .artPic {
+    aspect-ratio: 2;
+    width: 100%;
+
+    background-size: cover;
+    background-position: center;
+}
+
+#mainArticle > .artContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 1vw;
+    margin-right: 1vw;
+    font-size: 1.1em;
+}
+
+#mainArticle > .artContent > .artTitle {
+    font-size: 1.75em;
+    margin-top: 0;
+}
+
+#sideArticles > .article {
+    width: 30vw;
+    height: 25vh;
+    margin: 2vh;
+
+    background-color: white;
+    border: var(--off-white) 0.25vw solid;
+}
+
+#sideArticles > .article > .artPic {
+    aspect-ratio: 1;
+    height: 100%;
+
+    background-size: cover;
+    background-position: center;
+    float: left;
+    margin-right: 0.5vw;
+}
+
+#sideArticles > .article > .artContent {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    margin-right: 0.5vw;
+}
+
+.artTitle {
+    font-weight: 1000;
+    color: var(--near-black);
+    margin-bottom: -1vh;
+}
+
+.artText {
+    color: var(--off-black);
+}
+
+.readMore {
+    color: var(--dark-blue);
+    font-weight: 1000;
+    font-size: 1.25em;
+    margin-top: -0.5em;
+}
+
+#fantasyPromo {
+    position: absolute;
+    left: 0;
+    top: 205vh;
+
+    width: 100vw;
+    height: 40vh;
+
+    background-position-y: 80%;
+    background-size: cover;
+    color: var(--near-white);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#fantasyPromo > h3 {
+    text-transform: uppercase;
+    font-size: 3em;
+    font-style: italic;
+    font-weight: 1000;
+    line-height: 0.25em;
+}
+
+#fantasyPromo > p {
+    font-size: 1.5em;
+    font-weight: 500;
+    line-height: 0.25em;
+}
+
+#fantasyPromo > a {
+    width: 20vw;
+    height: 2em;
+    border-radius: 0.5em;
+
+    transform: skew(180deg);
     
+    color: var(--near-white);
+    background-color: rgba(34, 34, 34, 0.5);
+
+    font-size: 1.5em;
+    font-weight: 500;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: all 0.5s var(--quick-in);
+}
+
+#fantasyPromo > a:hover {
+    width: 25vw;
+    height: 2.5em;
+    border-radius: 0;
+
+    transform: skew(169deg);
+
+    background-color: rgba(34, 34, 34, 0.75);
+
+    font-size: 1.75em;
+    font-weight: 700;
 }
